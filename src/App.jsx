@@ -84,8 +84,11 @@ function App() {
           queryParams.append('search', filter);
         }
 
+        const API_URL =
+          import.meta.env.VITE_API_URL ||
+          'https://suitmedia-backend.suitdev.com';
         const response = await axios.get(
-          `/api/ideas?${queryParams.toString()}`
+          `${API_URL}/api/ideas?${queryParams.toString()}`
         );
         console.log('API Response:', response.data);
 
